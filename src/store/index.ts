@@ -35,6 +35,10 @@ export const tokenStore = {
   findById(id: string): CardToken | undefined {
     return tokens.get(id);
   },
+
+  findAll(): CardToken[] {
+    return Array.from(tokens.values());
+  }
 };
 
 // ─── Payment Store ────────────────────────────────────────────────────────────

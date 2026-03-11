@@ -47,6 +47,7 @@ export interface Payment {
   statusHistory: StatusEvent[]; // Full audit trail of every state transition
   createdAt: Date;
   updatedAt: Date;
+  webhookUrl: string;
 }
 
 // Represents a single state transition in the payment's history.
@@ -76,6 +77,7 @@ export interface WebhookEvent {
   payload: Payment;         // The full payment object at the time of the event
   createdAt: Date;
   attempts: number;         // How many times we've tried to deliver this webhook
+  webhookUrl: string;
                             // NOTE: Webhooks can fail (merchant server down), so we retry
 }
 
